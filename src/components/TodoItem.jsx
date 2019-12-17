@@ -9,8 +9,11 @@ import {
 } from '@material-ui/core'
 
 let TodoItem = (props) => {
-    let id = props.id
-    let todo = props.todo
+    let style = {
+        textDecoration: props.done ? 'line-through' : 'none'
+    } 
+
+    let {id, todo } = props
     return (
     <div className='TodoItem'>
         <Paper>
@@ -21,12 +24,12 @@ let TodoItem = (props) => {
                     </Typography>                
                 </Grid>
                 <Grid item xs={9}>
-                    <Typography variant='h6'>
+                    <Typography variant='h6' style={style}>
                         {todo}
                     </Typography>                
                 </Grid>
                 <Grid item xs={2}>
-                    <Button>
+                    <Button onClick={() => props.completed(id) } disabled={props.done}>
                         Mark Complete
                     </Button>         
                 </Grid>

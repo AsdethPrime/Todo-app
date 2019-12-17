@@ -1,36 +1,51 @@
 import React from 'react'
 import { Formik, Form, Field } from 'formik'
 
-class AddTodo extends React.Component {
+import {Paper, Grid,Typography} from '@material-ui/core'
+import {TextField } from 'formik-material-ui'
 
+
+class AddTodo extends React.Component {
     render() {
         return (
-            <div>
-                <h6>Add New Todo</h6>
-                <Formik
-                    initialValues={{ todo: ''}}   
-                    onSubmit={(values) => {
-                        let id = parseInt(this.props.lastId) + 1
-                        let action = values.todo
-                        let done = false
-                        let todo = {
-                            id: id, 
-                            todoAction: action, 
-                            done: false,
-                        }
-                        this.props.addTodo(todo)
-
-                    }}             
-                >
-                    {() => (
-                        <Form>
-                            <Field type="text" name='todo' />
-                            <button type="submit">Add Todo</button>
-                        </Form>
-                    )}
-                </Formik>
+            <div className='AddTodo'>
+                <Paper>
+                    <div className='AddTodo-heading'>
+                        <Typography variant='h4' align='center'>
+                            Add Todo 
+                        </Typography>
+                    </div>
+                    <div className='AddTodo-form'>
+                        <Formik
+                            initialValues={{ todo: ''}}   
+                            onSubmit={(values) => {
+                                let id = parseInt(this.props.lastId) + 1
+                                let action = values.todo                                
+                                let todo = {
+                                    id: id, 
+                                    todoAction: action, 
+                                    done: false,
+                                }
+                                this.props.addTodo(todo)                            
+                            }} 
+                        > 
+                            {() => (
+                                <Paper>
+                                    <Form>
+                                        <Grid container>
+                                            <Grid item xs={12}>
+                                                <Field type="text" name='todo' placeholder='Add Todo...' component={TextField} fullWidth/>
+                                            </Grid>
+                                        </Grid>                                           
+                                    </Form>
+                                </Paper>
+                            )}                            
+                        </Formik>
+                    </div>
+                </Paper>
             </div>
         )
+
     }
 }
 
