@@ -13,8 +13,8 @@ Features will be tacked on; and the app is created as a way to practice React.
 
 ## Tech Stack
 
-Tech stack used for this project is :
-    1) React
-    2) Formik => for form management 
-    3) Material-ui => UX library 
-    4) Formik-Material-ui => to bind forking with material UI ( check this in action in AddTodo.jsx)
+Tech stack used for this project is : <br />
+    1) React <br />
+    2) Formik => for form management  <br />
+    3) Material-ui => UX library  <br />
+    4) Formik-Material-ui => to bind forking with material UI ( check this in action in AddTodo.jsx) <br />
